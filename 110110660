@@ -1,0 +1,78 @@
+function transpose(m) 
+{
+    var t = [];
+    for (var j=0; j<m[0].length; j++) 
+    {
+      t[j] = [];
+      for (var i=0; i<m.length; i++) 
+      {
+        t[j][i] = m[i][j];
+      }
+    }
+    return t;
+}
+/*  轉至矩陣
+ 
+前面 m[0].length 是指 a 中 [3,2,1]共三個長度
+後面 m.length 則是指 a 之中有 [3,2,1], [1,2,3] 兩個元素
+ 
+j=0 3  i=0  3 = t[0][0] = m[0][0]; 
+       i=1  2 = t[0][1] = m[1][0];
+       i=2  1 = t[0][2] = m[2][0];  
+ 
+j=1 2  i=0  1 = t[1][0] = m[0][1]; 
+       i=1  2 = t[1][1] = m[1][1];
+       i=2  3 = t[1][2] = m[2][1];  
+*/
+function add(x,y)
+{
+   var s = [];
+   {
+    if (x[0].length == y[0].length && x.length == y.length)
+        {
+            for (var i = 0; i < x.length; i++)
+            {
+                s[i] = [];
+                for (var j = 0; j < x[0].length; j++)
+                {
+                    s[i][j] = x[i][j] + y[i][j];
+                }
+            }
+            return s;
+        }
+    else
+        document.write(error);
+   }
+}
+ 
+function time(a, b)
+{
+   var z = [];
+   for(var i = 0; i < a.length; i++)
+   {
+      z[i] = [];
+      for(var j = 0; j < b[i].length; j++)
+      {
+         z[i][j] = 0;
+         for(var k = 0; k < a[i].length; k++)
+         {
+            z[i][j] = z[i][j] + a[i][k] * b[k][j];
+         }
+      }
+   }
+   return z;
+}
+ 
+ 
+var a = [[3,2,1], [1,2,3]];
+ 
+var b = transpose(a);
+ 
+var c = add(a,a);
+ 
+var d = time(a,b);
+ 
+console.log("a = %j", a);
+console.log("b = %j", b);
+console.log("c = %j", c);
+console.log("d = %j", d);
